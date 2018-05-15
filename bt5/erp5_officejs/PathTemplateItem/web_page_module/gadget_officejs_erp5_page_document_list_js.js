@@ -26,22 +26,20 @@
             if (result.data.rows[i].value.hasOwnProperty("modification_date")) {
               date = new Date(result.data.rows[i].value.modification_date);
               result.data.rows[i].value.modification_date = {
-                field_gadget_param: {
-                  allow_empty_time: 0,
-                  ampm_time_style: 0,
-                  css_class: "date_field",
-                  date_only: 0,
-                  description: "The Date",
-                  editable: 0,
-                  hidden: 0,
-                  hidden_day_is_last_day: 0,
-                  "default": date.toUTCString(),
-                  key: "modification_date",
-                  required: 0,
-                  timezone_style: 0,
-                  title: "Modification Date",
-                  type: "DateTimeField"
-                }
+                allow_empty_time: 0,
+                ampm_time_style: 0,
+                css_class: "date_field",
+                date_only: 0,
+                description: "The Date",
+                editable: 0,
+                hidden: 0,
+                hidden_day_is_last_day: 0,
+                "default": date.toUTCString(),
+                key: "modification_date",
+                required: 0,
+                timezone_style: 0,
+                title: "Modification Date",
+                type: "DateTimeField"
               };
               result.data.rows[i].value["listbox_uid:list"] = {
                 key: "listbox_uid:list",
@@ -124,15 +122,21 @@
         .push(function () {
           return RSVP.all([
             gadget.getUrlFor({command: "change", options: {"page": "ojs_add_document"}}),
-            gadget.getSetting('document_title_plural')
+            gadget.getSetting('document_title_plural'),
+            gadget.getUrlFor({command: "change", options: {"page": "ojs_upload_convert"}}),
+            gadget.getSetting('upload_extension', false)
           ]);
         })
         .push(function (result) {
-          return gadget.updateHeader({
+          var header = {
             page_title: result[1],
             filter_action: true,
             add_url: result[0]
-          });
+          };
+          if (result[3]) {
+            header.upload_url = result[2];
+          }
+          return gadget.updateHeader(header);
         });
     });
 }(window, rJS, RSVP));
