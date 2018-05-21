@@ -5,7 +5,8 @@ var global = self, window = self;
 (function (self, fetch, Request, Response) {
   "use strict";
 
-  self.DOMParser = {};
+  self.DOMParser = Object;
+  self.XMLSerializer = Object;
   self.sessionStorage = {};
   self.localStorage = {};
   self.openDatabase = {};
