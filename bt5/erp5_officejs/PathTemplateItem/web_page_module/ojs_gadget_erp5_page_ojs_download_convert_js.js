@@ -90,7 +90,7 @@
         });
     })
 
-    .allowPublicAcquisition('jio_putAttachment', function () {
+    .allowPublicAcquisition('submitContent', function () {
       var gadget = this, format;
 
       return gadget.notifySubmitting()
