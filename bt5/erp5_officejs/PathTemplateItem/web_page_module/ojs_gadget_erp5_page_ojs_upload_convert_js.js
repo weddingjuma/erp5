@@ -18,7 +18,7 @@
     // declared methods
     /////////////////////////////////////////////////////////////////
 
-    .allowPublicAcquisition('jio_putAttachment', function () {
+    .allowPublicAcquisition('submitContent', function () {
       var gadget = this,
         file_name,
         jio_key,
