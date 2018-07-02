@@ -1,0 +1,61 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test and Update Test Files for LETTER Template</title>
+</head>
+<body>
+<!--
+          UPDATE comparison files for LIVE TESTS | DON'T RUN AUTOMATICALLY
+                    (else tests will always pass...)
+
+This Zuite updates all test files (diff-html, pdfs, bmps) used in the LiveTests
+based on the example web pages included in this bt5. Run this zuite after making
+changes to the bt5 which will alter their look to automatically update all files
+(else you need to do it by hand). This also means: DON'T RUN THIS AUTOMATICALLY,
+because it will also update all test files with any errors you make, causing
+liveTests to always pass (comparing wrong rendering to wrong test file).
+
+Help:
+http://www.seleniumhq.org/docs/02_selenium_ide.jsp#selenium-commands-selenese
+http://seleniummaster.com/sitecontent/index.php/introduction-to-selenium-automation/selenium-ide/114-selenium-ide-complete-list-of-commands
+
+Note:
+# make sure to set editor to plain text in (erp5 test preferences)
+-->
+
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+  <tr><td rowspan="1" colspan="3">Test Letter Template UI</td></tr>
+</thead>
+<tbody>
+  <tal:block metal:use-macro="here/Zuite_CommonTemplate/macros/init" />
+  <tal:block tal:define="portal here/portal_url/getPortalObject;
+                         caller python: getattr(context, 'Zuite_setSkipSave', None);
+                         no_file_update python: caller() if caller is not None else True">
+    <tr>
+      <td>open</td>
+      <td>${base_url}/bar_module/ListBoxZuite_reset</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>assertTextPresent</td>
+      <td>Reset Successfully.</td>
+      <td></td>
+    </tr>
+
+  </tal:block>
+  <tr>
+    <td>open</td>
+    <td>${base_url}/bar_module/ListBoxZuite_reset</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>assertTextPresent</td>
+    <td>Reset Successfully.</td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

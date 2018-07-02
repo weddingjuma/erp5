@@ -24,17 +24,12 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 ##############################################################################
-
 import unittest
 
 from Products.ERP5Type.tests.ERP5TypeFunctionalTestCase import ERP5TypeFunctionalTestCase
 
 class TestFunctionalCorporateIdentityTemplateList(ERP5TypeFunctionalTestCase):
-  foreground = 0
-  run_only = "template_test_zuite"
-
-  def getTitle(self):
-    return 'Corporate Identity UI Test'
+  run_only = "template_test_zuite_dummy"
 
   def getBusinessTemplateList(self):
     return (
@@ -47,3 +42,4 @@ def test_suite():
   suite = unittest.TestSuite()
   suite.addTest(unittest.makeSuite(TestFunctionalCorporateIdentityTemplateList))
   return suite
+

@@ -7,6 +7,6 @@ person_module/template_test*
 person_module/template_test*/default**
 portal_categories/function/company
 portal_categories/function/company/executive
-portal_tests/template_test_zuite
-portal_tests/template_test_zuite/testAndUpdateTest*
+portal_tests/template_test_zuite_dummy
+portal_tests/template_test_zuite_dummy/**
 web_page_module/template_test_*

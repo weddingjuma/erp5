@@ -1,1 +1,3 @@
-Test and output files used for portal component tests of erp5_corporate_identity
+Test and output files used for portal component tests of erp5_corporate_identity. Tests in:
+portal_tests/template_test_zuite
+portal_tests/template_test_zuite/testAndUpdateTest*
